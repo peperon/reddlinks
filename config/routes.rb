@@ -1,4 +1,13 @@
 Reddlinks::Application.routes.draw do
+  resources :link_communities
+
+
+  resources :communities
+
+
+  resources :links
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

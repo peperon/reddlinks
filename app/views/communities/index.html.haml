@@ -1,0 +1,21 @@
+%h1 Listing communities
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th
+    %th
+    %th
+
+  - @communities.each do |community|
+    %tr
+      %td= community.title
+      %td= community.description
+      %td= link_to 'Show', community
+      %td= link_to 'Edit', edit_community_path(community)
+      %td= link_to 'Destroy', community, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Community', new_community_path
