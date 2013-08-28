@@ -3,6 +3,7 @@ class LinkCommunitiesController < ApplicationController
   # GET /link_communities.json
   def index
     @link_communities = LinkCommunity.all
+    @link_community.link = Link.find(params[:link_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +26,6 @@ class LinkCommunitiesController < ApplicationController
   # GET /link_communities/new.json
   def new
     @link_community = LinkCommunity.new
-    @link_community.link = Link.find(params[:link_id])
 
     respond_to do |format|
       format.html # new.html.erb

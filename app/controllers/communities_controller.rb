@@ -1,4 +1,9 @@
 class CommunitiesController < ApplicationController
+  def not_related
+    @communities = Community.all
+    @link = Link.find(params[:link_id])
+  end
+
   # GET /communities
   # GET /communities.json
   def index

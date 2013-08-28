@@ -1,7 +1,8 @@
 Reddlinks::Application.routes.draw do
   get "home/index"
+  get "/links/:link_id/communities/new", to: "communities#not_related", as: "new_communities_to_link"
 
-  resources :link_communities
+#resources :link_communities
 
 
   resources :communities
