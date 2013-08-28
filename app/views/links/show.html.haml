@@ -9,6 +9,7 @@
 %p
   %b Url:
   = @link.url
+= link_to 'Add community', new_link_community_path({ "link_id" => @link })
 = render "owned"
 = link_to 'Edit', edit_link_path(@link)
 \|
