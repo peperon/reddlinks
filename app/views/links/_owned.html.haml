@@ -1,0 +1,8 @@
+%table
+  %tr
+    %th Community
+    %th
+  - @link.link_communities.each do |relation|
+    %tr
+      %td= relation.community.title
+      %td= link_to 'Remove', link, :method => :delete, :data => { :confirm => 'Are you sure?' }
