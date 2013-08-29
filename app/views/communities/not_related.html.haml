@@ -1,1 +1,24 @@
-%p Can navigate to here
+%p#notice= notice
+
+%h1 Listing communities
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th
+
+  - @communities.each do |community|
+    %tr
+      %td= community.title
+      %td= community.description
+      %td
+        = form_for LinkCommunity.new do |f|
+          = f.hidden_field :community_id, value: community.id
+          = f.hidden_field :link_id, value: @link.id
+
+          = f.submit 'Add'
+
+%br
+
+= link_to 'Back', links_path

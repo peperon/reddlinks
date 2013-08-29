@@ -1,7 +1,7 @@
 class CommunitiesController < ApplicationController
   def not_related
-    @communities = Community.all
     @link = Link.find(params[:link_id])
+    @communities = Community.all.find_all { |community| community.not_related_to_a(@link) }
   end
 
   # GET /communities

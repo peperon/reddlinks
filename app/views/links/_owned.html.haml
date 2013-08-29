@@ -5,4 +5,4 @@
   - @link.link_communities.each do |relation|
     %tr
       %td= relation.community.title
-      %td= link_to 'Remove', link, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to "Remove", relation, :method => :delete, :data => { :confirm => 'Are you sure?' }

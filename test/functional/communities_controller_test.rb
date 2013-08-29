@@ -5,6 +5,7 @@ class CommunitiesControllerTest < ActionController::TestCase
     @community = communities(:one)
     @new_community = Community.new(title: "New comminity",
                                    description: "")
+    @link = links(:google)
   end
 
   test "should get index" do
@@ -47,5 +48,12 @@ class CommunitiesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to communities_path
+  end
+
+  test "should get not related page" do
+    get :not_related, link_id: @link
+    assert_response :success
+    assert_not_nil assigns(:link)
+    assert_not_nil assigns(:communities)
   end
 end

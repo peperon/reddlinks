@@ -3,7 +3,11 @@
 one:
   link_id: 1
   community_id: 1
+  link: google
+  community: two
 
 two:
   link_id: 1
   community_id: 1
+  link: google
+  community: two
