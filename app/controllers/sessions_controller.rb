@@ -9,12 +9,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      redirect_to login_path, invalid_login: "Invalid username/password"
+      redirect_to login_url, alert: "Invalid username/password"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root
+    redirect_to root_path
   end
 end

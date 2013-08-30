@@ -1,7 +1,7 @@
 %h1 Login
 
-- if flash[:invalid_login]
-  %p{id="notice"}= flash[:invalid_login]
+- if flash[:alert]
+  %p{id="notice"}= flash[:alert]
 
 = form_tag do
   .field
