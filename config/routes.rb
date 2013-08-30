@@ -1,4 +1,10 @@
 Reddlinks::Application.routes.draw do
+  controller :sessions do
+    get    'login' => :new
+    post   'login' => :create
+    delete 'logoff' => :destroy
+  end
+
   resources :users
 
 

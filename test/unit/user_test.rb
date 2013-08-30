@@ -17,4 +17,22 @@ class UserTest < ActiveSupport::TestCase
     assert_equal I18n.translate('activerecord.errors.messages.taken'),
                  user.errors[:name].join('; ')
   end
+
+  test "user can authenticate with valid username and password" do
+    user = User.authenticate "John", "abv123"
+
+    refute_nil user, "Exptect user to not be nil"
+  end
+
+  test "user can't authenticate with invalid username" do
+    user = User.authenticate "Rob", "password"
+
+    assert_nil user, "Expect user to be nil"
+  end
+
+  test "user can't authenticate with invalid password" do
+    user = User.authenticate "John", "invalid_password"
+
+    assert_nil user, "Expect user to be nil"
+  end
 end

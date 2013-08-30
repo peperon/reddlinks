@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  password_digest: MyString
+  name: John
+  password_digest: $2a$10$yjy7X5f4j/qIxlZtwSONhe0Ult8nUsCUZLRMI7EzLAPyvQbzMVEWm
 
 two:
   name: MyString
