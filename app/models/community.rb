@@ -1,8 +1,11 @@
 class Community < ActiveRecord::Base
+  NO_WITESPACES = /^[\S]+$/
+
   attr_accessible :description, :title, :user_id
 
   validates :title, :user_id, presence: true
   validates :title, uniqueness: true
+  validates :title, format: { :with => NO_WITESPACES }
 
   belongs_to :user
   has_many :link_communities
