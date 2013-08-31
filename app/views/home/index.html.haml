@@ -4,5 +4,4 @@
 %ul
   - @links.each do |link|
     %li
-      .entry
-        = link_to link.title, link.url
+      = render 'entry', link: link
