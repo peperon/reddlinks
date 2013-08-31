@@ -10,7 +10,6 @@
 #columns {
   ul {
     padding: 0;
-
     li {
       list-style: none;
       padding: 1em;
@@ -22,12 +21,18 @@
     padding: 1em;
     background: white;
     
-    ul {
-      li {
-        a {
+    ul li a {
           font-size: medium;
-        }
-      }
+    }
+
+    .filter-item {
+      padding: 0;
+      display: inline;
+    }
+
+    .filter-list {
+      margin: 0;
+      padding: 0;
     }
   }
 

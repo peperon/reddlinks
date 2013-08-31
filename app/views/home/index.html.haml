@@ -1,6 +1,10 @@
 - if notice
   %p#notice= notice
 
+%ul{:class => "filter-list"}
+  %li{:class => "filter-item"}= link_to "New", root_path
+  %li{:class => "filter-item"}= link_to "Top", root_path
+  %li{:class => "filter-item"}= link_to "Liked", root_path
 %ul
   - @links.each_with_index do |link, index|
     %li
