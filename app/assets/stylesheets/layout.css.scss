@@ -5,7 +5,34 @@
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
-  img {
-    float: left;
+}
+
+#columns {
+  #content {
+    margin-right: 25em;
+    padding: 1em;
+    background: white;
+    
+    ul {
+      padding: 0;
+      
+      li {
+        list-style: none;
+        padding: 1em;
+
+        a {
+          font-size: large;
+        }
+      }
+    }
+  }
+
+  #side {
+    float: right;
+    padding: 1em 2em;
+    width: 17em;
+    border-left: 1px solid;
+    border-color: #282;
+    height: 100%;
   }
 }

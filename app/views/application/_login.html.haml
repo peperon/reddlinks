@@ -1,0 +1,11 @@
+= form_tag("/login/") do
+  .field
+    = label_tag :name, "Username"
+    = text_field_tag :name, params[:name]
+  .field
+    = label_tag :password, "Password"
+    = password_field_tag :password, params[:password]
+  .field
+    = link_to "register new account", new_user_path
+  .actions
+    = submit_tag 'Login'

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout "layout_without_left_column"
+
   def new
   end
 

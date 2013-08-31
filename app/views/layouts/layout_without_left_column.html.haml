@@ -8,11 +8,5 @@
     = csrf_meta_tags
   %body
     #header= @page_title || "Reddlinks"
-    #columns
-      #side
-        - if !session[:user_id]
-          = render "login"
-        - else
-          = link_to "logoff", logoff_path, :method => :delete
-      #content
-        = yield
+    #content
+      = yield
