@@ -1,0 +1,4 @@
+%h3 Communities
+%ul
+  - @communities.each do |community|
+    %li= link_to community.title, root_path(community_id: community.id)

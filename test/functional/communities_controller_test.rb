@@ -6,7 +6,7 @@ class CommunitiesControllerTest < ActionController::TestCase
 
     session[:user_id] = users(:one).id
     @input_fields = {
-      title: "New community",
+      title: "NewCommunity",
       description: "",
       user_id: users(:one).id
     }

@@ -13,6 +13,7 @@
         - if !session[:user_id]
           = render "login"
         - else
-          = render "side"
+          = render "menu"
+        = render_cell :community, :show
       #content
         = yield
