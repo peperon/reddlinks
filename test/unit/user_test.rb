@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  setup do
+    @john   = users :one
+    @google = links :google
+  end
+
   test "users attributes must not be empty" do
     user = User.new
 
@@ -34,5 +39,17 @@ class UserTest < ActiveSupport::TestCase
     user = User.authenticate "John", "invalid_password"
 
     assert_nil user, "Expect user to be nil"
+  end
+
+  test "user can vote up for link" do 
+    @john.vote_up_for @google.id
+
+    assert_equal 1, @google.rating
+  end
+
+  test "user can vote down for link" do
+    @john.vote_down_for @google.id
+
+    assert_equal -1, @google.rating
   end
 end

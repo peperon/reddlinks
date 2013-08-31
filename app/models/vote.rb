@@ -8,12 +8,12 @@ class Vote < ActiveRecord::Base
     vote = Vote.find_by_user_id_and_link_id user_id, link_id
 
     if vote.nil?
-      vote = Vote.create(user_id: user_id,
+      Vote.create(user_id: user_id,
                   link_id: link_id,
                   value: value)
     else
       vote.value = value
+      vote.save
     end
-    vote.save
   end
 end

@@ -6,6 +6,12 @@ one:
   value: 1
 
 two:
-  user_id: 1
-  link_id: 1
+  user_id: one
+  link_id: facebook
+  value: 1
+  link: facebook
+
+three:
+  user_id: two
+  link: facebook
   value: 1

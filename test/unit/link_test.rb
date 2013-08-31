@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
+  setup do
+    @facebook = links :facebook
+  end
+
   test "links attributes must not be empty" do
     link = Link.new
 
@@ -33,5 +37,9 @@ class LinkTest < ActiveSupport::TestCase
     friendly_format = google.updated_at.strftime "%d.%m.%Y"
 
     assert_equal friendly_format, google.last_updated
+  end
+
+  test "link can calculate rating correctly" do
+    assert_equal 2, @facebook.rating
   end
 end
