@@ -1,8 +1,10 @@
 class LinksController < ApplicationController
+  before_filter :authorize  
+
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @links = Link.find_all_by_user_id current_user.id
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +27,7 @@ class LinksController < ApplicationController
   # GET /links/new.json
   def new
     @link = Link.new
+    @link.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb

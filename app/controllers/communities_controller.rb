@@ -1,4 +1,6 @@
 class CommunitiesController < ApplicationController
+  before_filter :authorize
+
   def not_related
     @link = Link.find(params[:link_id])
     @communities = Community.all.find_all { |community| community.not_related_to_a(@link) }
@@ -7,7 +9,7 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+    @communities = Community.find_all_by_user_id current_user.id
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,6 +32,7 @@ class CommunitiesController < ApplicationController
   # GET /communities/new.json
   def new
     @community = Community.new
+    @community.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb

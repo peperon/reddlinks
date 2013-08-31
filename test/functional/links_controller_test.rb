@@ -3,15 +3,25 @@ require 'test_helper'
 class LinksControllerTest < ActionController::TestCase
   setup do
     @link = links(:google)
-    @new_link = Link.new(title: "New link",
-                         description: "",
-                         url: "http://some_url.com")
+    session[:user_id] = users(:one).id
+    @input_fields = {
+      title: "New link",
+      description: "",
+      url: "http://some_url.com",
+      user_id: users(:one).id
+    }
   end
 
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:links)
+  end
+
+  test "should not be able to get index if not loged in" do
+    session[:user_id] = nil
+    get :index
+    assert_redirected_to login_path
   end
 
   test "should get new" do
@@ -21,7 +31,7 @@ class LinksControllerTest < ActionController::TestCase
 
   test "should create link" do
     assert_difference('Link.count') do
-      post :create, link: { description: @new_link.description, title: @new_link.title, url: @new_link.url }
+      post :create, link: @input_fields
     end
 
     assert_redirected_to link_path(assigns(:link))
@@ -38,7 +48,7 @@ class LinksControllerTest < ActionController::TestCase
   end
 
   test "should update link" do
-    put :update, id: @link, link: { description: @link.description, title: @link.title, url: @link.url }
+    put :update, id: @link, link: @input_fields
     assert_redirected_to link_path(assigns(:link))
   end
 

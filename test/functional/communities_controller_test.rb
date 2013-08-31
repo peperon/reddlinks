@@ -3,8 +3,13 @@ require 'test_helper'
 class CommunitiesControllerTest < ActionController::TestCase
   setup do
     @community = communities(:one)
-    @new_community = Community.new(title: "New comminity",
-                                   description: "")
+
+    session[:user_id] = users(:one).id
+    @input_fields = {
+      title: "New community",
+      description: "",
+      user_id: users(:one).id
+    }
     @link = links(:google)
   end
 
@@ -14,6 +19,12 @@ class CommunitiesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:communities)
   end
 
+  test "should not be able to get index if not loged in" do
+    session[:user_id] = nil
+    get :index
+    assert_redirected_to login_path
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -21,7 +32,7 @@ class CommunitiesControllerTest < ActionController::TestCase
 
   test "should create community" do
     assert_difference('Community.count') do
-      post :create, community: { description: @new_community.description, title: @new_community.title }
+      post :create, community: @input_fields
     end
 
     assert_redirected_to community_path(assigns(:community))
@@ -38,7 +49,7 @@ class CommunitiesControllerTest < ActionController::TestCase
   end
 
   test "should update community" do
-    put :update, id: @community, community: { description: @new_community.description, title: @new_community.title }
+    put :update, id: @community, community: @input_fields
     assert_redirected_to community_path(assigns(:community))
   end
 

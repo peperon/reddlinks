@@ -1,9 +1,10 @@
 class Community < ActiveRecord::Base
-  attr_accessible :description, :title
+  attr_accessible :description, :title, :user_id
 
-  validates :title, presence: true
+  validates :title, :user_id, presence: true
   validates :title, uniqueness: true
 
+  belongs_to :user
   has_many :link_communities
 
   before_destroy :ensure_not_referenced_by_any_link_comminity

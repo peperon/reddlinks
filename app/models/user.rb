@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   has_secure_password
 
+  has_many :links
+  has_many :communities
+
   def self.authenticate(name, password)
     user = User.find_by_name name
 
