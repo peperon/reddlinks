@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
-  fixtures :links
-
   test "links attributes must not be empty" do
     link = Link.new
 
@@ -19,5 +17,21 @@ class LinkTest < ActiveSupport::TestCase
     assert !link.save
     assert_equal I18n.translate('activerecord.errors.messages.taken'),
                  link.errors[:title].join('; ')
+  end
+
+  test "link can show onwners name" do
+    google = links :google
+    john   = users :one
+    
+    google.user = john
+
+    assert_equal john.name, google.owner_name
+  end
+
+  test "link can show last updated date in a friendly format" do
+    google          = links :google
+    friendly_format = google.updated_at.strftime "%d.%m.%Y"
+
+    assert_equal friendly_format, google.last_updated
   end
 end

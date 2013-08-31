@@ -1,2 +1,11 @@
 .entry
+  .number= index.to_s + "."
+  -if session[:user_id]
+    .vote-up= link_to "-", down_path(:link_id => link.id), :method => :post
+    .rating= link.rating
+    .vote-down= link_to "+", up_path(:link_id => link.id), :method => :post
+  - else
+    .rating= link.rating
   = link_to link.title, link.url
+  %br
+  = label_tag "Last updated: #{link.last_updated} by #{link.owner_name}"

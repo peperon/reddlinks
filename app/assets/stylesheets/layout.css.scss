@@ -25,7 +25,7 @@
     ul {
       li {
         a {
-          font-size: large;
+          font-size: medium;
         }
       }
     }
@@ -45,5 +45,26 @@
         font-size: small;
       }
     }
+  }
+}
+
+.entry {
+  .number {
+    display: inline;
+    font-size: large;
+  }
+  .rating {
+    text-align: center;
+    color: red;
+    display: inline;
+    font-size: large;
+    padding: 5px;
+  }
+  .vote-up {
+    display: inline;
+  }
+  
+  .vote-down {
+    display: inline;
   }
 }

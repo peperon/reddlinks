@@ -4,8 +4,10 @@ google:
   title: Google switch to Ruby on Rails
   description: Google switch to Rails
   url: http://www.google.com
+  user: one
 
 facebook:
   title: Facebook has been rewritten to Rails
   description: Facebook has been rewritten to Rails
   url: http://www.facebook.com
+  user: one

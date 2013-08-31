@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :links
   has_many :communities
+  has_many :votes
 
   def self.authenticate(name, password)
     user = User.find_by_name name
@@ -15,5 +16,13 @@ class User < ActiveRecord::Base
     else
       nil  
     end
+  end
+
+  def vote_up_for(link)
+    Vote.elect id, link, 1
+  end
+
+  def vote_down_for(link)
+    Vote.elect id, link, -1
   end
 end

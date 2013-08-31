@@ -2,6 +2,6 @@
   %p#notice= notice
 
 %ul
-  - @links.each do |link|
+  - @links.each_with_index do |link, index|
     %li
-      = render 'entry', link: link
+      = render 'entry', link: link, index: index + 1

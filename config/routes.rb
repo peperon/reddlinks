@@ -5,6 +5,11 @@ Reddlinks::Application.routes.draw do
     delete 'logoff' => :destroy
   end
 
+  controller :voting do
+    post 'up'   => :up
+    post 'down' => :down
+  end
+
   resources :users
 
 
