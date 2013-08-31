@@ -8,18 +8,22 @@
 }
 
 #columns {
+  ul {
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 1em;
+    }
+  }
+
   #content {
     margin-right: 25em;
     padding: 1em;
     background: white;
     
     ul {
-      padding: 0;
-      
       li {
-        list-style: none;
-        padding: 1em;
-
         a {
           font-size: large;
         }
@@ -34,5 +38,12 @@
     border-left: 1px solid;
     border-color: #282;
     height: 100%;
+
+    ul li {
+      padding: 0;
+      a {
+        font-size: small;
+      }
+    }
   }
 }

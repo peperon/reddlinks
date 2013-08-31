@@ -13,6 +13,6 @@
         - if !session[:user_id]
           = render "login"
         - else
-          = link_to "logoff", logoff_path, :method => :delete
+          = render "side"
       #content
         = yield
