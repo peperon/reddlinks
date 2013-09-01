@@ -17,3 +17,9 @@ avalon:
   description: Some avalon description
   url: http://www.avalon.com
   user: two
+
+gmail:
+  title: Gmail
+  description: Gmail link
+  url: http://www.gmail.com
+  user: one

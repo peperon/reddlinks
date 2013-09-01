@@ -12,7 +12,7 @@ class Community < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_link_comminity
 
-  def not_related_to_a(link)
+  def not_related?(link)
     link_communities.none? { |reference| reference.link_id == link.id } 
   end
 

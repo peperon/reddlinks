@@ -3,7 +3,7 @@ class CommunitiesController < ApplicationController
 
   def not_related
     @link = Link.find(params[:link_id])
-    @communities = Community.all.find_all { |community| community.not_related_to_a(@link) }
+    @communities = Community.all.find_all { |community| community.not_related?(@link) }
   end
 
   # GET /communities

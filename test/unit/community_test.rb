@@ -25,4 +25,10 @@ class CommunityTest < ActiveSupport::TestCase
   test "community should be able to return list of related links" do
     assert_equal 3, @programming.links.size
   end
+
+  test "community should be abel to check if it is related to a link" do
+    link = links :gmail
+
+    assert @programming.not_related? link
+  end
 end

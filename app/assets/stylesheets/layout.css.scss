@@ -21,19 +21,6 @@
     padding: 1em;
     background: white;
     
-    ul li a {
-          font-size: medium;
-    }
-
-    .filter-item {
-      padding: 0;
-      display: inline;
-    }
-
-    .filter-list {
-      margin: 0;
-      padding: 0;
-    }
   }
 
   #side {
@@ -50,26 +37,5 @@
         font-size: small;
       }
     }
-  }
-}
-
-.entry {
-  .number {
-    display: inline;
-    font-size: medium;
-  }
-  .rating {
-    text-align: center;
-    color: red;
-    display: inline;
-    font-size: large;
-    padding: 5px;
-  }
-  .vote-up {
-    display: inline;
-  }
-  
-  .vote-down {
-    display: inline;
   }
 }
