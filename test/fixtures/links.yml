@@ -11,3 +11,9 @@ facebook:
   description: Facebook has been rewritten to Rails
   url: http://www.facebook.com
   user: one
+
+avalon:
+  title: Avalon
+  description: Some avalon description
+  url: http://www.avalon.com
+  user: two

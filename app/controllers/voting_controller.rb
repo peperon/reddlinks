@@ -5,13 +5,13 @@ class VotingController < ApplicationController
     link = params[:link_id]
 
     current_user.vote_up_for link
-    redirect_to root_path
+    redirect_to :back
   end
 
   def down
   link = params[:link_id]
 
   current_user.vote_down_for link
-  redirect_to root_path
+  redirect_to :back
   end
 end

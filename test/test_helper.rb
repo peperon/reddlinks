@@ -10,4 +10,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def build_link_with_id_and_creation_date(id, creation_date)
+    link = Link.new
+    link.id = id
+    link.created_at = creation_date
+
+    link
+  end
 end

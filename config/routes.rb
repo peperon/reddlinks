@@ -12,10 +12,6 @@ Reddlinks::Application.routes.draw do
 
   resources :users
 
-
-  get "home/index"
-  get "/links/:link_id/communities/new", to: "communities#not_related", as: "new_communities_to_link"
-
   resources :link_communities
 
 
@@ -23,6 +19,16 @@ Reddlinks::Application.routes.draw do
 
 
   resources :links
+
+  controller :home do
+    get ':order' => :index, as: "order"
+    get 'c/:community' => :filter, as: "filter"
+    get 'c/:community/:order' => :filter, as: "filter_order"
+  end
+
+  get "home/index"
+  get "/links/:link_id/communities/new", to: "communities#not_related", as: "new_communities_to_link"
+
 
 
   # The priority is based upon order of creation:

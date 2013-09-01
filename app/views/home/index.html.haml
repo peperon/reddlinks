@@ -2,9 +2,16 @@
   %p#notice= notice
 
 %ul{:class => "filter-list"}
-  %li{:class => "filter-item"}= link_to "New", root_path
-  %li{:class => "filter-item"}= link_to "Top", root_path
-  %li{:class => "filter-item"}= link_to "Liked", root_path
+- if @community
+  %li{:class => "filter-item"}= link_to "New", filter_order_path(community: @community.title, order: :new)
+  %li{:class => "filter-item"}= link_to "Top", filter_order_path(community: @community.title, order: :top)
+  %li{:class => "filter-item"}= link_to "Old", filter_order_path(community: @community.title, order: :old)
+  %li{:class => "filter-item"}= link_to "Hot", root_path
+- else
+  %li{:class => "filter-item"}= link_to "New", order_url(order: :new)
+  %li{:class => "filter-item"}= link_to "Top", order_url(order: :top)
+  %li{:class => "filter-item"}= link_to "Old", order_url(order: :old)
+  %li{:class => "filter-item"}= link_to "Hot", root_path
 %ul
   - @links.each_with_index do |link, index|
     %li

@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class CommunityTest < ActiveSupport::TestCase
+  setup do
+    @programming = communities :two    
+  end
+
   test "community title and user id must not be empty" do
     community = Community.new
 
@@ -16,5 +20,9 @@ class CommunityTest < ActiveSupport::TestCase
 
     assert community.invalid?
     assert community.errors[:title].any?
+  end
+
+  test "community should be able to return list of related links" do
+    assert_equal 3, @programming.links.size
   end
 end

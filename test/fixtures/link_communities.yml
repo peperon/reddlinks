@@ -11,3 +11,7 @@ two:
   community_id: 1
   link: google
   community: two
+
+three:
+  link: google
+  community: two

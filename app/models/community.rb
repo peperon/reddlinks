@@ -16,6 +16,10 @@ class Community < ActiveRecord::Base
     link_communities.none? { |reference| reference.link_id == link.id } 
   end
 
+  def links
+    link_communities.map(&:link)
+  end
+
   private
 
   def ensure_not_referenced_by_any_link_comminity

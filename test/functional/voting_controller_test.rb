@@ -5,6 +5,7 @@ class VotingControllerTest < ActionController::TestCase
     @link = links :google
     @john = users :one
 
+    request.env["HTTP_REFERER"] = root_path
     session[:user_id] = @john.id
   end
   
@@ -13,7 +14,7 @@ class VotingControllerTest < ActionController::TestCase
       post :up, link_id: @link.id 
     end
 
-    assert_redirected_to root_path
+    assert_redirected_to request.env["HTTP_REFERER"]
   end
 
   test "should be able to vote down for link" do
@@ -21,6 +22,6 @@ class VotingControllerTest < ActionController::TestCase
       post :down, link_id: @link.id
     end
 
-    assert_redirected_to root_path
+    assert_redirected_to request.env["HTTP_REFERER"]
   end
 end
